@@ -3,35 +3,26 @@ import {
 } from "react";
 
 import API from "../api/axios";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
 
-  const [form, setForm] =
-    useState({
+  const [form, setForm] =useState({
       name: "",
       email: "",
       password: ""
     });
 
+  let navigate = useNavigate()
+
   const handleSubmit =
     async (e) => {
-
       e.preventDefault();
-
       try {
-
-        const res =
-          await API.post(
-            "/auth/register",
-            form
-          );
-
-        alert(
-          res.data.message
-        );
-
+        const res = await API.post("/auth/register",form);
+        alert(res.data.message);
+        navigate("/login")
       } catch (error) {
-
         alert(
           error.response.data.message
         );
