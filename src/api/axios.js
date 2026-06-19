@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API = axios.create({
 //   baseURL: "http://localhost:5000/api"
-  baseURL: "https://ai-nutrition-dashboard-backend.onrender.com/api"
+  baseURL: "https://ai-nutrition-dashboard-backend.onrender.com"
 });
 
 API.interceptors.request.use(
